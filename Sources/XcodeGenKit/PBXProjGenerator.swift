@@ -504,9 +504,6 @@ public class PBXProjGenerator {
                 let buildPath = Path(dependency.reference).parent().string.quoted
                 frameworkBuildPaths.insert(buildPath)
 
-                // Static libraries can't link or embed dynamic frameworks
-                guard target.type != .staticLibrary else { break }
-
                 let fileReference: PBXFileElement
                 if dependency.implicit {
                     fileReference = sourceGenerator.getFileReference(
